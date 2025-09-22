@@ -8,9 +8,9 @@ echo The Rollup native module issue is persistent on Vercel.
 echo Let's try deploying to Netlify instead, which handles this better.
 echo.
 
-echo 📤 Committing Netlify configuration...
+echo 📤 Committing Netlify build fixes...
 git add .
-git commit -m "Fix Node.js version in Netlify config - Use v20.11.1"
+git commit -m "Fix Netlify build - Remove TypeScript compilation step, update config"
 
 echo 🚀 Pushing to GitHub...
 git push origin main
