@@ -7,9 +7,11 @@
     "dev": "vite",
     "dev:server": "node server/index.js",
     "dev:full": "concurrently \"npm run dev:server\" \"npm run dev\"",
-    "build": "vite build",
+    "build": "npm run clean && vite build",
+    "clean": "rm -rf dist node_modules/.vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@prisma/client": "^6.16.1",

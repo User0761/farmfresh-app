@@ -23,14 +23,21 @@ export default defineConfig(({ mode }) => {
     }
   },
   build: {
+    target: 'esnext',
+    outDir: 'dist',
     rollupOptions: {
       output: {
         manualChunks: undefined,
       },
     },
+    chunkSizeWarningLimit: 1000,
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
+    include: ['react', 'react-dom'],
   },
+  esbuild: {
+    target: 'esnext'
+  }
   };
 });
