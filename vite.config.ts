@@ -25,18 +25,9 @@ export default defineConfig(({ mode }) => {
     outDir: 'dist',
     minify: 'esbuild',
     rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
-      external: (id) => {
-        // Exclude problematic native modules
-        return id.includes('@rollup/rollup-');
-      }
+      external: ['rollup']
     },
-    chunkSizeWarningLimit: 1000,
-    commonjsOptions: {
-      ignoreTryCatch: false
-    }
+    chunkSizeWarningLimit: 1000
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
