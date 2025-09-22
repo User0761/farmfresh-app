@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": "c8a2gstmzgj2mfgx00qn",
+      "name": "Green Valley Farm",
+      "email": "farmer_demo_1757686232255@example.com",
+      "password": "$2a$10$VjBXL9nYfF2om4Rl6mM0G.w3xbPkWiTt9EjLld2GbndVlwbI9TrmK",
+      "role": "farmer",
+      "location": "Sonoma, CA",
+      "phone": "",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Green%20Valley%20Farm",
+      "createdAt": "2025-09-12T14:10:32.835Z",
+      "updatedAt": "2025-09-12T14:10:32.835Z"
+    },
+    {
+      "id": "c2p0wbxbgjn5mfgxse6a",
+      "createdAt": "2025-09-12T14:32:36.034Z",
+      "updatedAt": "2025-09-12T14:32:36.034Z",
+      "name": "dev",
+      "email": "dev123@gmail.com",
+      "password": "$2a$10$hgYW21U/4oRRjqs0BRGD4OizLQ6eSLtIYNGck4uIOfYlcEXEkw1mW",
+      "role": "customer",
+      "location": "",
+      "phone": "",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=dev"
+    },
+    {
+      "id": "cz2aspkkf5vdmfgxtrys",
+      "createdAt": "2025-09-12T14:33:40.564Z",
+      "updatedAt": "2025-09-12T14:33:40.564Z",
+      "name": "dev",
+      "email": "dev@gmail.com",
+      "password": "$2a$10$8EFFW3uZYDHQOEBHXk78IOjJ8op3FATLLfrIPsOPk/QW8lRE2tIwa",
+      "role": "farmer",
+      "location": "",
+      "phone": "",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=dev"
+    }
+  ],
+  "products": [
+    {
+      "id": "c1o5800kqblrmfgx016r",
+      "name": "Organic Carrots",
+      "description": "Freshly harvested organic carrots, perfect for salads, juicing, or cooking.",
+      "price": 2.99,
+      "unit": "bunch",
+      "quantity": 50,
+      "imageUrl": "https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg",
+      "category": "Vegetables",
+      "harvestDate": "2025-02-15T00:00:00.000Z",
+      "farmerId": "c8a2gstmzgj2mfgx00qn",
+      "location": "Sonoma, CA",
+      "organic": true,
+      "createdAt": "2025-09-12T14:10:32.835Z",
+      "updatedAt": "2025-09-12T14:10:32.835Z"
+    },
+    {
+      "id": "cvkri7cd8j3pmfgx016r",
+      "name": "Fresh Strawberries",
+      "description": "Sweet and juicy strawberries, perfect for desserts or enjoying fresh.",
+      "price": 4.99,
+      "unit": "lb",
+      "quantity": 30,
+      "imageUrl": "https://images.pexels.com/photos/59945/strawberry-fruit-delicious-red-59945.jpeg",
+      "category": "Fruits",
+      "harvestDate": "2025-02-16T00:00:00.000Z",
+      "farmerId": "c8a2gstmzgj2mfgx00qn",
+      "location": "Sonoma, CA",
+      "organic": true,
+      "createdAt": "2025-09-12T14:10:32.835Z",
+      "updatedAt": "2025-09-12T14:10:32.835Z"
+    }
+  ],
+  "orders": [],
+  "orderItems": []
+}

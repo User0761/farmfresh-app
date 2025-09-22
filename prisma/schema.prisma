@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role
+  location  String   @default("")
+  phone     String   @default("")
+  avatar    String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products  Product[]
+  orders    Order[]   @relation("CustomerOrders")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  unit        String
+  quantity    Int
+  imageUrl    String
+  category    String
+  harvestDate DateTime
+  location    String   @default("Unknown Location")
+  organic     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  farmer     User     @relation(fields: [farmerId], references: [id])
+  farmerId   String
+  orderItems OrderItem[]
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  customer       User        @relation("CustomerOrders", fields: [customerId], references: [id])
+  customerId     String
+  items          OrderItem[]
+  totalPrice     Float
+  status         String      @default("pending")
+  deliveryMethod String      @default("delivery")
+  deliveryAddress String?
+  pickupLocation  String?
+  paymentMethod   String      @default("upi")
+  paymentStatus   String      @default("pending")
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int
+}
+
+enum Role {
+  farmer
+  vendor
+  customer
+}

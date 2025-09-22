@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 46 125 50; /* green-700 */
+    --color-primary-light: 76 175 80; /* green-500 */
+    --color-primary-dark: 27 94 32; /* green-800 */
+    
+    --color-secondary: 121 85 72; /* brown-500 */
+    --color-secondary-light: 141 110 99; /* brown-400 */
+    --color-secondary-dark: 78 52 46; /* brown-800 */
+    
+    --color-accent: 255 152 0; /* orange-500 */
+    
+    --color-success: 56 142 60; /* green-700 */
+    --color-warning: 255 152 0; /* orange-500 */
+    --color-error: 211 47 47; /* red-700 */
+    
+    --background: 250 250 250;
+    --foreground: 33 33 33;
+    
+    --card: 255 255 255;
+    --card-foreground: 33 33 33;
+    
+    --popover: 255 255 255;
+    --popover-foreground: 33 33 33;
+    
+    --muted: 245 245 245;
+    --muted-foreground: 97 97 97;
+    
+    --border: 224 224 224;
+    --input: 224 224 224;
+    
+    --ring: 46 125 50;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  h1 {
+    @apply text-4xl leading-tight;
+  }
+  h2 {
+    @apply text-3xl leading-tight;
+  }
+  h3 {
+    @apply text-2xl leading-snug;
+  }
+  h4 {
+    @apply text-xl leading-snug;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md font-medium transition-colors 
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
+    disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-input bg-background hover:bg-muted hover:text-foreground;
+  }
+  
+  .btn-ghost {
+    @apply hover:bg-muted hover:text-foreground;
+  }
+  
+  .btn-lg {
+    @apply h-12 px-8 py-3 text-lg;
+  }
+  
+  .btn-md {
+    @apply h-10 px-6 py-2;
+  }
+  
+  .btn-sm {
+    @apply h-8 px-4 py-1 text-sm;
+  }
+  
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-sm;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+    disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors
+    focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  .badge-primary {
+    @apply bg-primary text-white;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary text-white;
+  }
+  
+  .badge-outline {
+    @apply border border-input bg-background text-foreground;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
