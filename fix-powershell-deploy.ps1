@@ -27,12 +27,33 @@ if ($remotes -contains "origin") {
 # Fix 3: Get correct repository URL
 Write-Host ""
 Write-Host "📝 Repository Setup" -ForegroundColor Yellow
-Write-Host "Your repository URL should be: https://github.com/realreview12/farmfresh-app.git" -ForegroundColor Cyan
+Write-Host "⚠️  Permission Error Detected!" -ForegroundColor Red
+Write-Host "You're logged in as 'User0761' but trying to access 'realreview12' repository" -ForegroundColor Yellow
 Write-Host ""
-$repoUrl = Read-Host "Enter your GitHub repository URL (or press Enter to use the suggested one)"
+Write-Host "Choose an option:" -ForegroundColor Cyan
+Write-Host "1. Create repository under YOUR account (User0761/farmfresh-app)" -ForegroundColor White
+Write-Host "2. Enter a different repository URL" -ForegroundColor White
+Write-Host ""
+$choice = Read-Host "Enter your choice (1 or 2)"
 
-if ([string]::IsNullOrWhiteSpace($repoUrl)) {
-    $repoUrl = "https://github.com/realreview12/farmfresh-app.git"
+if ($choice -eq "1") {
+    $repoUrl = "https://github.com/User0761/farmfresh-app.git"
+    Write-Host "✅ Using your repository: $repoUrl" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "📋 Next steps:" -ForegroundColor Yellow
+    Write-Host "1. Go to GitHub.com" -ForegroundColor White
+    Write-Host "2. Create new repository named 'farmfresh-app'" -ForegroundColor White
+    Write-Host "3. Make it public" -ForegroundColor White
+    Write-Host "4. DON'T add README, .gitignore, or license" -ForegroundColor White
+    Write-Host "5. Come back here and we'll push your code" -ForegroundColor White
+    Write-Host ""
+    $confirm = Read-Host "Have you created the repository? (y/n)"
+    if ($confirm -ne "y") {
+        Write-Host "Please create the repository first, then run this script again." -ForegroundColor Yellow
+        return
+    }
+} else {
+    $repoUrl = Read-Host "Enter your GitHub repository URL"
 }
 
 Write-Host ""
