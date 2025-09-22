@@ -6,7 +6,8 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "nodeVersion": "20.x"
       }
     }
   ],
@@ -19,7 +20,10 @@
       "dest": "/index.html"
     }
   ],
-  "installCommand": "npm ci --omit=optional",
+  "installCommand": "npm ci --legacy-peer-deps --omit=optional",
   "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=4096"
+  }
 }

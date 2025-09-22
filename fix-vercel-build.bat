@@ -15,7 +15,7 @@ echo.
 
 echo 📤 Committing fixes to Git...
 git add .
-git commit -m "Fix Vercel build issues - Rollup optional dependencies"
+git commit -m "Fix Vercel Rollup native module errors - Force Node.js 20.x runtime"
 
 echo 🚀 Pushing to GitHub...
 git push origin main

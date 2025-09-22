@@ -4,10 +4,8 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Load env file named "env.env"
-  const env = loadEnv(mode, process.cwd(), '', {
-    envFiles: ['.env', 'env.env']
-  });
+  // Load env file
+  const env = loadEnv(mode, process.cwd(), '');
   process.env = { ...process.env, ...env };
   
   return {
@@ -25,12 +23,20 @@ export default defineConfig(({ mode }) => {
   build: {
     target: 'esnext',
     outDir: 'dist',
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: undefined,
       },
+      external: (id) => {
+        // Exclude problematic native modules
+        return id.includes('@rollup/rollup-');
+      }
     },
     chunkSizeWarningLimit: 1000,
+    commonjsOptions: {
+      ignoreTryCatch: false
+    }
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
