@@ -10,7 +10,7 @@ echo.
 
 echo 📤 Committing Netlify configuration...
 git add .
-git commit -m "Add Netlify deployment configuration - Alternative to Vercel"
+git commit -m "Fix Node.js version in Netlify config - Use v20.11.1"
 
 echo 🚀 Pushing to GitHub...
 git push origin main
